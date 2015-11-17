@@ -1,4 +1,20 @@
 Rails.application.routes.draw do
+
+  root 'application#welcome'
+  
+  get 'application/angular' #default is to use application and its __ action
+
+  resources :posts
+  resources :users
+
+  post '/users' => 'users#create'
+
+  post '/session' => 'session#create'
+
+  delete '/session' => 'session#destroy'
+
+  get 'current_user' => 'session#current_user'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

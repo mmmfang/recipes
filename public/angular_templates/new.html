@@ -1,0 +1,10 @@
+<div ng-app="weatherApp">
+	
+	<div ng-controller="PostController as postCtrl">
+		<form ng-submit="postCtrl.createPost()">
+			<input type="text" ng-model="postCtrl.date" placeholder="Weather for which date?">
+			<input type="text" ng-model="postCtrl.body" placeholder="Write your post">
+		<input type="submit">
+		</form>
+	</div>
+</div>

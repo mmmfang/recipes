@@ -13,3 +13,35 @@
  *= require_tree .
  *= require_self
  */
+
+* {
+	box-sizing: border-box;
+	margin:0;
+}
+
+.welcome-section {
+	width: 50%;
+	background-color: deeppink;
+	padding: .5rem;
+}
+
+.welcome-section input {
+	width: 100%;
+	padding-top: 0.5rem;
+	background-color: lightpink;
+	margin-top: .5rem;
+
+}
+
+.welcome-section input[type="submit"] {
+	width: 100%;
+	padding-top: 0.5rem;
+	background-color: purple;
+	color:white;
+
+}
+
+h1.alert {
+	background: yellow;
+	border: 2px solid red;
+}
