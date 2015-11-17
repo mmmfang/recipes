@@ -9,16 +9,16 @@ class ApplicationController < ActionController::Base
   	render '/welcome'
   end
 
-  # def angular
-  #   render 'angular'
-  # end
+  def angular
+    render 'layouts/angular'
+  end
 
   def current_user
-    if session[:session_token]
-      @current_user ||= User.find_by(session_token: session[:session_token])
-    else
-      @current_user = nil
-    end
+    # if session[:session_token]
+    #   @current_user ||= User.find_by(session_token: session[:session_token])
+    # else
+    #   @current_user = nil
+    # end
   end
-  
+
 end

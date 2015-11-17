@@ -8,8 +8,8 @@ class SessionController < ApplicationController
  
       token = SecureRandom.urlsafe_base64
 
-      session[:session_token] = token
-      user.update(session_token: token)
+      # session[:session_token] = token
+      # user.update(session_token: token)
 
       flash[:message] = "Thanks for logging in."
       redirect_to application_angular_path

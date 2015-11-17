@@ -1,0 +1,20 @@
+  
+<h2>BLOOP</h2>
+
+<div ng-controller="HeaderController as header">
+	<h2>Welcome {{header.current_user.email}}</h2>
+</div>
+	
+	<div ng-controller="PostController as postCtrl">
+
+		<form ng-submit="postCtrl.createPost()">
+			<input type="text" ng-model="postCtrl.date" placeholder="Weather for which date?">
+			<input type="text" ng-model="postCtrl.body" placeholder="Write your post">
+		<input type="submit">
+		</form>
+
+		<ul ng-repeat="post in postCtrl">
+			<li>{{post.body}}</li>
+		</ul>
+	</div>
+</div>
