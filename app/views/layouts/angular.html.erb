@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html ng-app="weatherApp">
+<html ng-app="recipeApp">
 <head>
-  <title>Weather</title>
+  <title>Recipe</title>
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>	
@@ -12,7 +12,39 @@
 
  <h1>THIS IS MY PRETEND NAVBAR</h1>
 
-<div ng-view></div>
+
+
+<div ng-controller="HeaderController as header">
+	<h2>Welcome {{header.current_user.email}}</h2>
+</div>
+	
+<div ng-controller="recipeController as recipeCtrl">
+
+		<form ng-submit="recipeCtrl.createPost()">
+			<input type="text" ng-model="postCtrl.date" placeholder="Weather for which date?">
+			<input type="text" ng-model="postCtrl.body" placeholder="Write your post">
+		<input type="submit">
+		</form>
+
+		<ul ng-repeat="post in postCtrl">
+			<li>{{post.body}}</li>
+		</ul>
+	</div>
+</div>
+
+
+  <h3>Current Todos</h3>
+  <ul class="todos">
+    <li ng-repeat="todo in ctrl.todos">
+      <button ng-click="ctrl.updateTodo(todo)">
+        {{ todo.done ? 'undo' : 'done' }}
+      </button>
+      <button ng-click="ctrl.destroyTodo(todo)">
+        Remove todo!
+      </button>
+      <span ng-class="todo.done ? 'done' : 'undone'">
+        {{ todo.description }}
+      </span>
 
 </body>
 </html>

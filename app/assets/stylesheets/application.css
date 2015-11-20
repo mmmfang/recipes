@@ -19,6 +19,7 @@
 	margin:0;
 }
 
+
 .welcome-section {
 	width: 50%;
 	background-color: deeppink;
@@ -30,7 +31,6 @@
 	padding-top: 0.5rem;
 	background-color: lightpink;
 	margin-top: .5rem;
-
 }
 
 .welcome-section input[type="submit"] {
@@ -38,7 +38,6 @@
 	padding-top: 0.5rem;
 	background-color: purple;
 	color:white;
-
 }
 
 h1.alert {
