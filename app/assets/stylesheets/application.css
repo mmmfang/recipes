@@ -17,26 +17,31 @@
 * {
 	box-sizing: border-box;
 	margin:0;
+	font-family: Helvetica, Arial, sans-serif;
 }
 
+.login-page {
+	text-align:center;
+	background-color: floralwhite
+}
 
 .welcome-section {
-	width: 50%;
-	background-color: deeppink;
+	margin: 0 auto;
+	width: 45%;
 	padding: .5rem;
 }
 
 .welcome-section input {
 	width: 100%;
 	padding-top: 0.5rem;
-	background-color: lightpink;
+	background-color: white;
 	margin-top: .5rem;
 }
 
 .welcome-section input[type="submit"] {
 	width: 100%;
 	padding-top: 0.5rem;
-	background-color: purple;
+	background-color: limegreen;
 	color:white;
 }
 

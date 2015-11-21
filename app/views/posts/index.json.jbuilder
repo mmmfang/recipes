@@ -1,6 +1,8 @@
-json.recipes(@recipes) do |recipe|
+json.posts(@posts) do |post|
 
-json.id          @recipe.id
-json.date 		 @recipe.date
-json.body        @recipe.body
+	json.id          	@post.id
+	json.recipe_name  	@post.recipe_name
+	json.body       	@post.body
+	json.ingredients 	@post.ingredients
+	
 end

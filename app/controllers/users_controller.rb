@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
 	if @user.save
 		flash[:message] = "Account succesfully created. Please sign in."
-#		redirect_to root_path 
+		redirect_to root_path 
 	else
 		flash[:message] = @user.errors.full_messages.to_sentence
 		redirect_to root_path

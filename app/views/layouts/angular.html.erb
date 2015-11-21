@@ -1,40 +1,61 @@
 <!DOCTYPE html>
 <html ng-app="recipeApp">
-<head>
-  <title>Recipe</title>
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>	
-  <%= javascript_include_tag 'angular', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>Recipe</title>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>	
+    <%= javascript_include_tag 'angular', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
 
- <h1>THIS IS MY PRETEND NAVBAR</h1>
+  <body>
+    <nav>
+      <h1>THIS IS MY PRETEND NAVBAR</h1>
+      <div ng-controller="UserController as userCtrl">
+	     <h2>Welcome {{userCtrl.current_user.email}}</h2>
+        <form type="hidden" ng-submit="userCtrl.logout()">
+          <input type="submit" value="Log Out" />
+        </form>
 
-
-
-<div ng-controller="HeaderController as header">
-	<h2>Welcome {{header.current_user.email}}</h2>
-</div>
+<!--           <form action="<%= session_path %>" method="POST">
+            <input type="hidden" name="authenticity_token"
+              value="<%= form_authenticity_token %>">
+            <input type="hidden" name="_method" value="DELETE">
+            <input class="logout" type="submit" value="Log out">
+          </form> -->
+    
+    </div>
+    </nav>
 	
-<div ng-controller="recipeController as recipeCtrl">
+<div ng-controller="PostController as postCtrl">
 
-		<form ng-submit="recipeCtrl.createPost()">
-			<input type="text" ng-model="postCtrl.date" placeholder="Weather for which date?">
-			<input type="text" ng-model="postCtrl.body" placeholder="Write your post">
-		<input type="submit">
+		<form ng-submit="postCtrl.createPost()">
+			<input  type="text" 
+              ng-model="postCtrl.recipe_name" 
+              placeholder="Name of Recipe" />
+      <br/>
+      <input  type="text" 
+              ng-model="postCtrl.ingredients" 
+              placeholder="Add your ingredients list" />
+      <br/>
+			<input  type="text" 
+              ng-model="postCtrl.body" 
+              placeholder="Write your recipe down" />
+      <br/>
+		  <input type="submit">
 		</form>
+    
+    <h3>Current Recipes</h3>
 
-		<ul ng-repeat="post in postCtrl">
+		<ul ng-repeat="post in postCtrl.post">
 			<li>{{post.body}}</li>
 		</ul>
 	</div>
-</div>
 
 
-  <h3>Current Todos</h3>
-  <ul class="todos">
+<!--   
+ 
     <li ng-repeat="todo in ctrl.todos">
       <button ng-click="ctrl.updateTodo(todo)">
         {{ todo.done ? 'undo' : 'done' }}
@@ -45,6 +66,6 @@
       <span ng-class="todo.done ? 'done' : 'undone'">
         {{ todo.description }}
       </span>
-
+ -->
 </body>
 </html>

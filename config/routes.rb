@@ -9,11 +9,13 @@ Rails.application.routes.draw do
 
   post '/users' => 'users#create'
 
+  get '/session' => 'session#current_user', defaults: { format: :json }
+
   post '/session' => 'session#create'
 
   delete '/session' => 'session#destroy'
 
-  get 'current_user' => 'session#current_user'
+ 
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

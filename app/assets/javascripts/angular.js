@@ -1,12 +1,32 @@
 var app = angular.module('recipeApp', []);
 
-// Verifies the current_user
-app.controller('HeaderController', ['$http', function($http){
+// User controller
+app.controller('UserController', ['$http', function($http){
   var controller = this;
+  
   $http.get('/session').success(function(data){
     controller.current_user = data.current_user;
   });
+
+  this.logout = function() {
+    $http.delete('/session').success(function() {
+      console.log("user logged out")
+    })
+  }    
+
 }]);
+
+
+  this.destroyPost = function (post) {
+    $http.delete('/posts/' + post.id)
+      .then(function (response) {
+        var index = controller.posts.indexOf(post);
+        controller.posts.splice(index, 1);
+      }, function (error) {
+
+      });
+  };
+
 
 //Recipes just save in browser, not persist to db
 app.controller('CookbookController', function(){
