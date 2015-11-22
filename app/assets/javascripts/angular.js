@@ -60,30 +60,30 @@ app.controller('PostController', ['$http', function($http){
   }
 
 
-  // this.updatePost = function (post) {
-  //     $http.patch('/posts/' + post.id, {
-  //       post: {
-  //         recipe_name: controller.recipe_name,
-  //         ingredients: controller.ingredients,
-  //         body: controller.body
-  //       }
-  //     }).then(function (response) {
-  //       var index = controller.posts.indexOf(post);
-  //      controller.posts[index].done = response.data.done;
-  //     }, function (error) {
+  this.editPost = function (post) {
+      $http.patch('/posts/' + post.id, {
+      authenticity_token: authenticity_token,
+        post: {
+          recipe_name: controller.recipe_name,
+          ingredients: controller.ingredients,
+          body: controller.body
+        }
+      }).then(function (response) {
+          console.log("success updating post")
+      }, function (error) { 
+          console.log(error)
+      });
+  };
 
-  //     });
-  // };
+  this.destroyPost = function (post) {
+    $http.delete('/posts/' + post.id)
+      .then(function (response) {
+        var index = controller.posts.indexOf(post);
+        controller.posts.splice(index, 1);
+      }, function (error) {
 
-  // this.destroyPost = function (post) {
-  //   $http.delete('/posts/' + post.id)
-  //     .then(function (response) {
-  //       var index = controller.posts.indexOf(post);
-  //       controller.posts.splice(index, 1);
-  //     }, function (error) {
-
-  //     });
-  // };
+      });
+  };
 
   // Finally, the controller starts with the current todos prefetched
   // controller.getPosts();

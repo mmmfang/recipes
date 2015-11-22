@@ -11,7 +11,7 @@
 
 <body>
   <nav>
-    <h1>Your Recipes Below</h1>
+    <h1>Your Recipes Box</h1>
        <!-- Logout Button -->
       <form action="<%= session_path %>" method="POST">           
         <input type="hidden" name="authenticity_token"
@@ -31,17 +31,17 @@
   <div ng-controller="PostController as postCtrl">
 
 		<form ng-submit="postCtrl.createPost()">
-			<input  type="text" 
+			<input  type="text" class="recipe-input"
               ng-model="postCtrl.recipe_name" 
-              placeholder="Name of Recipe" />{{postCtrl.recipe_name}}
+              placeholder="Name of Recipe" />
       <br/>
-      <input  type="text" 
+      <input  type="text" class="recipe-input"
               ng-model="postCtrl.ingredients" 
-              placeholder="Add your ingredients list" />{{postCtrl.ingredients}}
+              placeholder="Add your ingredients list" />
       <br/>
-			<input  type="textarea" 
+			<input  type="text"  class="recipe-input"
               ng-model="postCtrl.body" 
-              placeholder="Write your recipe down" /> {{postCtrl.body}}
+              placeholder="Write your recipe down" /> 
       <br/>
 		  <input type="submit">
 		</form>
@@ -50,13 +50,37 @@
 
     <h3>Current Recipes</h3>
 
-		<div class="recipe-display" ng-repeat="post in postCtrl.current_user_posts">
+		<div class="recipe-display" ng-repeat="post in postCtrl.current_user_posts" | orderBy: "-created_at">
 
       <p>Recipe Name: {{post.recipe_name}}</p>
 			<p>Ingredients: {{post.ingredients}}</p>
       <p>Instructions: {{post.body}}</p>
-      <button ng-click="postCtrl.updatePost(post)"> Edit</button>
-      <button ng-click="postCtrl.deletePost(post)"> Edit</button>
+ 
+      <button ng-click="editPost=!editPost"> Edit</button>
+
+      <div ng-show="editPost">
+        <form ng-submit="postCtrl.editPost(post)">
+            Recipe Name:
+            <input type="text" 
+              ng-model="postCtrl.recipe_name" 
+              placeholder= "{{post.recipe_name}}" />
+            <br/>
+            Ingredients:
+           <input type="text" 
+              ng-model="postCtrl.ingredients" 
+              placeholder= "{{post.ingredients}}"/> 
+          <br/>
+            Instructions:
+            <input type="text" 
+                ng-model="postCtrl.body" 
+                placeholder= "{{post.body}}"/>
+          <br/>
+            <input type="submit" value="submit" />
+        </form>
+      </div>
+    
+
+      <button ng-click="postCtrl.deletePost(post)"> Delete</button>
 
 		</div>
 
@@ -65,16 +89,6 @@
 <!-- 
 <form ng-submit="articleCtrl.deleteArticle(article)">
  -->
-<!--   
- 
-    <li ng-repeat="todo in ctrl.todos">
 
-      <button ng-click="ctrl.destroyTodo(todo)">
-        Remove todo!
-      </button>
-      <span ng-class="todo.done ? 'done' : 'undone'">
-        {{ todo.description }}
-      </span>
- -->
 </body>
 </html>
