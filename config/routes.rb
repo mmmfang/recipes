@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   root 'application#welcome'
   
-  get 'application/angular' #default is to use application and its __ action
+  get 'application/angular'
 
   resources :posts
   resources :users

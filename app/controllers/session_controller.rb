@@ -1,5 +1,5 @@
 class SessionController < ApplicationController
-  #skip_before_action :verify_authenticity_token, only: :create
+  skip_before_action :verify_authenticity_token, only: :destroy
 
   def create
     user = User.find_by(email: user_params[:email])
@@ -7,12 +7,7 @@ class SessionController < ApplicationController
       if user && user.authenticate(user_params[:password])
       session[:current_user_id] = user.id
 
-      # token = SecureRandom.urlsafe_base64
-
-      # session[:session_token] = token
-      # user.update(session_token: token)
-
-      flash[:message] = "Thanks for logging in."
+      # flash[:message] = "Thanks for logging in."
       redirect_to application_angular_path
     else
       flash[:message] = "Email / Password combo does not exist!"
@@ -28,16 +23,10 @@ class SessionController < ApplicationController
     else
       @current_user = nil
     end
-    # if session[:session_token]
-    #   @current_user ||= User.find_by(session_token: session[:session_token])
-    # else
-    #   @current_user = nil
-    # end
   end
 
   def destroy
     session[:current_user_id] = nil
-    # session[:session_token] = nil
 
     redirect_to root_path
   end

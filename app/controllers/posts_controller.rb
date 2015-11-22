@@ -15,9 +15,10 @@ before_action :require_current_user
 		if @post.save
 			# render json: post
 		else
-			render json {
-				error: true,
+     		render json: {
+        		error: {
 				message: @post.errors.full_messages.to_sentence
+				}
 			}
 		end
 		# else
@@ -48,8 +49,11 @@ before_action :require_current_user
   	end
 
 
+
 private
 
 def post_params
 	params.require(:post).permit(:date, :body)
+end
+
 end
