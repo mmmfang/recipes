@@ -21,18 +21,6 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  # def current_user
-  #   if session[:session_token]
-  #     @current_user ||= User.find_by(session_token: session[:session_token])
-  #   else
-  #     @current_user = nil
-  #   end
-  # end
-
-  # def log_out!
-  #   session[:session_token] = nil
-  # end
-
  # def amiloggedin
  #    amiloggedin = !!session[:current_user_id]
  #    render json: current_user

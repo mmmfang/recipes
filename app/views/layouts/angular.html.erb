@@ -28,32 +28,34 @@
 
   </nav>
 	
-  <div ng-controller="PostController as postCtrl">
+  <div ng-controller="PostController as post">
 
-		<form ng-submit="postCtrl.createPost()">
+		<form ng-submit="post.createPost()">
 			<input  type="text" 
-              ng-model="postCtrl.recipe_name" 
-              placeholder="Name of Recipe" />
+              ng-model="post.recipe_name" 
+              placeholder="Name of Recipe" />{{post.recipe_name}}
       <br/>
       <input  type="text" 
-              ng-model="postCtrl.ingredients" 
-              placeholder="Add your ingredients list" />
+              ng-model="post.ingredients" 
+              placeholder="Add your ingredients list" />{{post.ingredients}}
       <br/>
 			<input  type="textarea" 
-              ng-model="postCtrl.body" 
-              placeholder="Write your recipe down" />
+              ng-model="post.body" 
+              placeholder="Write your recipe down" /> {{post.body}}
       <br/>
 		  <input type="submit">
 		</form>
     
     <h3>Current Recipes</h3>
 
-		<ul ng-repeat="post in postCtrl.post">
+<!-- 		<ul ng-repeat="post in postCtrl.posts">
       <li>{{post.recipe_name}}</li>
 			<li>{{post.ingredients}}</li>
       <li>{{post.body}}</li>
 		</ul>
-	</div>
+	</div> -->
+
+
 <form ng-submit="articleCtrl.deleteArticle(article)">
 
 <!--   

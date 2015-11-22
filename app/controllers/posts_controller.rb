@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 
-before_action :require_current_user
+  #before_action :require_current_user
   skip_before_action :verify_authenticity_token, only: :destroy
 
 	def index
@@ -13,12 +13,12 @@ before_action :require_current_user
 		@post = current_user.posts.new(post_params)	
 
 		if @post.save
-			# render json: post
+			render json: post
 		else
      		render json: {
-        		error: {
+        		error: true,
 				message: @post.errors.full_messages.to_sentence
-				}
+	
 			}
 		end
 		# else
@@ -53,7 +53,7 @@ before_action :require_current_user
 private
 
 def post_params
-	params.require(:post).permit(:date, :body)
+	params.require(:post).permit(:recipe_name, :body, :ingredients)
 end
 
 end

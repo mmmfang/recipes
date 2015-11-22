@@ -27,32 +27,32 @@ app.controller('PostController', ['$http', function($http){
   var controller = this;
 
   this.getPosts = function(){
-    // get transgressions for current User
     $http.get('/posts').success(function(data){
        controller.current_user_posts = data.posts;
     });
-  }
-    this.getPosts();
+  };
+    
 
   // create 
   this.createPost = function(){
     console.log(controller);
+
     //make a post to /transgressions
     $http.post('/posts', {
-
       authenticity_token: authenticity_token,
       //values from form
       post: {
-        recipe_name: controller.new_recipe_name,
-        ingredients: controller.new_ingredients,
-        body: controller.new_body
+        recipe_name: controller.recipe_name,
+        ingredients: controller.ingredients,
+        body: controller.body
       }
-    }).success(function(data){
-        console.log("data for createPOst", data)
-       controller.getPosts();
-    });
+    }).then(function(data){
+        console.log("data for create post", data)
+    }, function(error) {
+       console.log(error)
+    })
+            controller.getPosts();
   }
-
 
 
   // this.updatePost = function (post) {
@@ -81,6 +81,6 @@ app.controller('PostController', ['$http', function($http){
   // };
 
   // Finally, the controller starts with the current todos prefetched
-  this.getPosts();
+  // controller.getPosts();
 }]);
 
