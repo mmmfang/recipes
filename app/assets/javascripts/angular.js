@@ -37,7 +37,6 @@ app.controller('PostController', ['$http', function($http){
   // create 
   this.createPost = function(){
  
-    //make a post to /transgressions
     $http.post('/posts', {
       authenticity_token: authenticity_token,
       //values from form
@@ -57,7 +56,7 @@ app.controller('PostController', ['$http', function($http){
         this.body = '',
 
     this.getPosts();
-  }
+  };
 
 
   this.editPost = function (post) {
@@ -80,8 +79,8 @@ app.controller('PostController', ['$http', function($http){
   this.destroyPost = function (post) {
     $http.delete('/posts/' + post.id)
       .then(function (response) {
-        var index = controller.posts.indexOf(post);
-        controller.posts.splice(index, 1);
+        console.log("success deleting")
+
       }, function (error) {
 
       });
@@ -90,6 +89,5 @@ app.controller('PostController', ['$http', function($http){
   };
 
  
-  // controller.getPosts();
 }]);
 
