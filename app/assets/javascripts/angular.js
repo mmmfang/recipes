@@ -73,6 +73,8 @@ app.controller('PostController', ['$http', function($http){
       }, function (error) { 
           console.log(error)
       });
+
+    this.getPosts();
   };
 
   this.destroyPost = function (post) {
@@ -83,9 +85,11 @@ app.controller('PostController', ['$http', function($http){
       }, function (error) {
 
       });
+
+    this.getPosts();
   };
 
-  // Finally, the controller starts with the current todos prefetched
+ 
   // controller.getPosts();
 }]);
 

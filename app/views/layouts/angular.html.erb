@@ -63,24 +63,28 @@
             Recipe Name:
             <input type="text" 
               ng-model="postCtrl.recipe_name" 
-              placeholder= "{{post.recipe_name}}" />
+              placeholder= "{{post.recipe_name}}"
+              value= "{{post.recipe_name}}" />
             <br/>
             Ingredients:
            <input type="text" 
               ng-model="postCtrl.ingredients" 
-              placeholder= "{{post.ingredients}}"/> 
+              placeholder= "{{post.ingredients}}"
+              value= "{{post.ingredients}}"
+              /> 
           <br/>
             Instructions:
             <input type="text" 
                 ng-model="postCtrl.body" 
-                placeholder= "{{post.body}}"/>
+                placeholder= "{{post.body}}"
+                value= "{{post.body}}"/>
           <br/>
             <input type="submit" value="submit" />
         </form>
       </div>
     
 
-      <button ng-click="postCtrl.deletePost(post)"> Delete</button>
+      <button ng-click="postCtrl.destroyPost(post)"> Delete</button>
 
 		</div>
 
