@@ -31,12 +31,12 @@ app.controller('PostController', ['$http', function($http){
        controller.current_user_posts = data.posts;
     });
   };
+      this.getPosts();
     
 
   // create 
   this.createPost = function(){
-    console.log(controller);
-
+ 
     //make a post to /transgressions
     $http.post('/posts', {
       authenticity_token: authenticity_token,
@@ -46,12 +46,17 @@ app.controller('PostController', ['$http', function($http){
         ingredients: controller.ingredients,
         body: controller.body
       }
-    }).then(function(data){
-        console.log("data for create post", data)
-    }, function(error) {
-       console.log(error)
-    })
-            controller.getPosts();
+    }).success(function(data){
+        console.log("post created and sent to db", data);
+    }).error(function(error){
+      console.log(error)
+    }); 
+        controller.getPosts();
+        this.recipe_name = '',
+        this.ingredients = '',
+        this.body = '',
+
+    this.getPosts();
   }
 
 

@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   
   get 'application/angular'
 
-  resources :posts
+  resources :posts, defaults: { format: :json } 
   resources :users
 
   post '/users' => 'users#create'

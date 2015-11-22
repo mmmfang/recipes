@@ -21,13 +21,14 @@ class ApplicationController < ActionController::Base
     end
   end
 
- # def amiloggedin
- #    amiloggedin = !!session[:current_user_id]
- #    render json: current_user
- #  end
+ def amiloggedin
+    !!current_user
+      # amiloggedin = !!session[:current_user_id]
+      # render json: current_user
+  end
 
- #  def require_current_user
- #    redirect_to root_path unless amiloggedin
- #  end
+  def require_current_user
+    redirect_to root_path unless amiloggedin
+  end
 
 end

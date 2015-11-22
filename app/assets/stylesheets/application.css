@@ -49,3 +49,11 @@ h1.alert {
 	background: yellow;
 	border: 2px solid red;
 }
+
+.recipe-display {
+	border: 2px solid black;
+	margin: 10px;
+	width: 75%;
+	padding: 2%;
+	border-radius: 7px;
+}
