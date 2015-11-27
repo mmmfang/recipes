@@ -1,5 +1,20 @@
 == README
 
+Live Site: https://recipe-box-app.herokuapp.com/
+
+This README is for the Recipe Box app, which allows users to login and enter their recipes. A great way for everyone to keep their recipes in one place! 
+
+Technologies used: Ruby on Rails, AngularJS. Passwords are secured with bcrypt gem. Recipes are stored in Postgres database.
+
+The project helped me practice: Rails, understanding the Rails asset pipeline, MVC, linking Rails to Angular, CRUD operations, JSON and jbuilder, user authentication.
+
+How to use this app: Sign up and begin entering your recipes, either by copy and pasting or typing in your handwritten recipe cards. Fields to enter are recipe name, ingredients and instructions.
+
+To Do List for later: make site responsive. Add more fields to the recipe card.
+
+Food graphics sold by Ultraviolets on Creativemarket.com
+
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
