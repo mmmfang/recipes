@@ -46,10 +46,19 @@
 }
 
 h1.alert {
-	background: yellow;
-	border: 2px solid red;
+	background: goldenrod;
+	border: 2px solid white;
 }
 
+
+#front-bg {
+	background: url("bg.jpg");
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-attachment: fixed;
+	background-size: cover;
+}
+}
 .recipe-display {
 	border: 2px solid black;
 	margin: 10px;
