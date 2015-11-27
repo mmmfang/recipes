@@ -11,7 +11,7 @@
 
 <body>
   <nav>
-    <h1>Your Recipes Box</h1>
+    <h1>Recipe Box</h1>
        <!-- Logout Button -->
       <form action="<%= session_path %>" method="POST">           
         <input type="hidden" name="authenticity_token"
@@ -46,9 +46,11 @@
 		  <input type="submit">
 		</form>
     
+      <br/>
+
     <hr />
 
-    <h3>Current Recipes</h3>
+    <h3>Your Cookbook</h3>
 
 		<div class="recipe-display" ng-repeat="post in postCtrl.current_user_posts" | orderBy: "-created_at">
 
