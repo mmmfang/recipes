@@ -47,7 +47,6 @@ h2.alert {
 	border: 2px solid white;
 }
 
-
 #container {
 	width: 100%;
     display: flex;
@@ -88,12 +87,15 @@ h2.alert {
 }
 
 
-.recipe-display {
-	border: 2px solid black;
-	margin: 10px;
-	width: 75%;
-	padding: 2%;
-	border-radius: 7px;
+/*RECIPE PAGE ONCE LOGGED IN*/
+
+.centered {
+	text-align: center;
+}
+
+.enter-recipe {
+	width: 100%;
+	margin: 0 auto;
 }
 
 .recipe-input{
@@ -102,6 +104,17 @@ h2.alert {
 	background-color: ivory;
 	margin-top: .5rem;
 }
+
+.recipe-display {
+	border: 2px solid grey;
+	margin: 10px auto;
+	width: 75%;
+	padding: 2%;
+	border-radius: 7px;
+	color: black;
+}
+
+
 
 /*GRID SYSTEM BY http://chrisnager.github.io/ungrid/
 */

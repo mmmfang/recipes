@@ -11,9 +11,10 @@
 </head>
 
 <body>
-  <nav>
+  <nav class="centered">
     <h1>Recipe Box</h1>
        <!-- Logout Button -->
+       <br/>
       <form action="<%= session_path %>" method="POST">           
         <input type="hidden" name="authenticity_token"
               value="<%= form_authenticity_token %>">
@@ -26,33 +27,37 @@
     <div ng-controller="UserController as userCtrl">
 	     <h3>User is: {{userCtrl.current_user.email}}</h3>
     </div>
+    <br/>
 
   </nav>
 	
   <div ng-controller="PostController as postCtrl">
 
-		<form ng-submit="postCtrl.createPost()">
-			<input  type="text" class="recipe-input"
-              ng-model="postCtrl.recipe_name" 
-              placeholder="Name of Recipe" />
-      <br/>
-      <input  type="text" class="recipe-input"
-              ng-model="postCtrl.ingredients" 
-              placeholder="Add your ingredients list" />
-      <br/>
-			<input  type="text"  class="recipe-input"
-              ng-model="postCtrl.body" 
-              placeholder="Write your recipe down" /> 
-      <br/>
-		  <input type="submit">
-		</form>
+    <div class="enter-recipe centered">
+  		<form ng-submit="postCtrl.createPost()">
+  			<input  type="text" class="recipe-input"
+                ng-model="postCtrl.recipe_name" 
+                placeholder="Name of Recipe" />
+        <br/>
+        <input  type="text" class="recipe-input"
+                ng-model="postCtrl.ingredients" 
+                placeholder="Add your ingredients list" />
+        <br/>
+  			<input  type="text"  class="recipe-input"
+                ng-model="postCtrl.body" 
+                placeholder="Write your recipe down" /> 
+        <br/>
+  		  <input type="submit">
+		  </form>
     
       <br/>
+    </div>
 
     <hr />
 
-    <h3>Your Cookbook</h3>
-
+    <br/>
+    <h2 class="centered">Your Cookbook</h2>
+    <br/>
 		<div class="recipe-display" ng-repeat="post in postCtrl.current_user_posts" | orderBy: "-created_at">
 
       <p>Recipe Name: {{post.recipe_name}}</p>
