@@ -29,11 +29,13 @@ h1 {
 	font-family: 'Slabo 27px', serif;
 	color:slategrey;
 	text-shadow: 1px 1px black;
+	font-size: 3rem;
 }
 
 h2, h3{ 
 	font-family: 'Slabo 27px', serif;	
 }
+
 
 .login-page {
 	text-align:center;
@@ -45,9 +47,24 @@ h2.alert {
 	border: 2px solid white;
 }
 
+
+#container {
+	width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+#signup-area {
+	width:30%;
+}
+
+#signin-area {
+	width:30%;
+}
+
 .welcome-section {
 	margin: 0 auto;
-	width: 45%;
+	width:100%;
 	padding: .5rem;
 }
 
@@ -65,6 +82,10 @@ h2.alert {
 	color:white;
 }
 
+.image-row {
+    display: flex;
+    justify-content: space-between;
+}
 
 
 .recipe-display {
@@ -80,4 +101,27 @@ h2.alert {
 	padding: .5rem;
 	background-color: ivory;
 	margin-top: .5rem;
+}
+
+/*GRID SYSTEM BY http://chrisnager.github.io/ungrid/
+*/
+@media (min-width: 30em) {
+    .row { width: 100%; display: table; table-layout: fixed; }
+    .col { display: table-cell; }
+}
+
+/*media query section
+*/
+@media only screen and (min-width: 760px) {
+	height: 384px;
+}
+
+@media only screen and (min-width: 992px) {
+	height: 496px;
+	display: block;
+}
+
+@media only screen and (min-width: 1200px) {
+	height: 600 px;
+	display: block;
 }
