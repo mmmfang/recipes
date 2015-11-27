@@ -20,9 +20,29 @@
 	font-family: Helvetica, Arial, sans-serif;
 }
 
+#front-bg {
+	background-color:floralwhite;
+	color: navy;
+}
+
+h1 {
+	font-family: 'Slabo 27px', serif;
+	color:slategrey;
+	text-shadow: 1px 1px black;
+}
+
+h2, h3{ 
+	font-family: 'Slabo 27px', serif;	
+}
+
 .login-page {
 	text-align:center;
-	background-color: floralwhite
+}
+
+h2.alert {
+	background: chartreuse;
+	color: dodgerblue;
+	border: 2px solid white;
 }
 
 .welcome-section {
@@ -45,20 +65,8 @@
 	color:white;
 }
 
-h1.alert {
-	background: goldenrod;
-	border: 2px solid white;
-}
 
 
-#front-bg {
-	background: url("bg.jpg");
-	background-repeat: no-repeat;
-	background-position: center center;
-	background-attachment: fixed;
-	background-size: cover;
-}
-}
 .recipe-display {
 	border: 2px solid black;
 	margin: 10px;
