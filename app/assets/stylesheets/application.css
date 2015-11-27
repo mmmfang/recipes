@@ -86,6 +86,12 @@ h2.alert {
     justify-content: space-between;
 }
 
+.github-link {
+	text-decoration: none;
+	color:slategrey;
+	font-family: 'Slabo 27px', serif;
+	text-align: right;
+}
 
 /*RECIPE PAGE ONCE LOGGED IN*/
 
